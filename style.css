@@ -67,7 +67,7 @@ button:hover {
     margin-bottom: 5px;
 }
 
-.symbol {
+.symbol, .clear, .operate {
     background: #F49F43;
     color: #FFFFFF;
 }
