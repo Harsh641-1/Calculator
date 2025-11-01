@@ -47,11 +47,24 @@ digitButtons.forEach(button => {
 symbolButtons = document.querySelectorAll('.symbol')
 symbolButtons.forEach(button => {
     button.addEventListener('click', (e) => {
-        num1 = Number(display)
-        operator = e.target.textContent
-        display += ' ' + operator + ' '
-        document.querySelector('.text').textContent = display
-        
+        if (display.includes('+')|| display.includes('-') || display.includes('*') || display.includes('/')){
+            arrayDisplay = display.split(' ')
+           
+            operator = arrayDisplay[1]
+            num1 = arrayDisplay[0]
+            num2 = arrayDisplay[2]
+            result = operate(Number(num1),Number(num2),operator)
+            operator = e.target.textContent
+            display = result + ' ' + operator + ' '
+            document.querySelector('.text').textContent = display
+            
+
+        }else {
+            num1 = Number(display)
+            operator = e.target.textContent
+            display += ' ' + operator + ' '
+            document.querySelector('.text').textContent = display
+        }
 
     })
 })
@@ -59,9 +72,18 @@ symbolButtons.forEach(button => {
 operateButton = document.querySelector('.operate')
 operateButton.addEventListener('click', () => {
     arrayDisplay = display.split(' ')
+    num1 = arrayDisplay[0]
     num2 = arrayDisplay[2]
     result = operate(Number(num1),Number(num2),operator)
     document.querySelector('.text').textContent = result
-    display = result
+    display = String(result)
 })
 
+clearButton = document.querySelector('.clear')
+clearButton.addEventListener('click', () => {
+    num1 = 0
+    num2 = 0
+    operator = ''
+    display = ''
+    document.querySelector('.text').textContent = display
+})
