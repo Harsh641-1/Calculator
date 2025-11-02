@@ -35,7 +35,7 @@ body {
 }
 
 button {
-    height: 50px;
+    height: 40px;
     width: 50px;
     font-size: 16px;
     flex-basis: auto;
@@ -67,7 +67,7 @@ button:hover {
     margin-bottom: 5px;
 }
 
-.symbol, .clear, .operate {
+.symbol, .clear, .operate, .backspace {
     background: #F49F43;
     color: #FFFFFF;
 }
